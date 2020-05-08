@@ -7,7 +7,7 @@ import random
 from vars import *
 
 exts = ["jpg", "png"]
-agent = "python:reddit-cast:v1.0.0"
+agent = "python:reddit-cast:v1.1.0"
 
 def main():
     # Find and connect to chromecast
@@ -45,7 +45,7 @@ def main():
         print("Starting slideshow")
         for post in sub.hot():
             ext = post.url.split(".")[-1]
-            if ext in exts:
+            if ext in exts and (allow_nsfw or not post.over_18):
                 print("Casting: {} ({})".format(post.title, post.url))
                 cast.play_media(post.url, "image/" + ext)
                 time.sleep(timeout)
