@@ -33,7 +33,7 @@ def main():
     cast.wait()
 
     # Connect to reddit and choose subreddit
-    reddit = praw.Reddit(client_id=id, client_secret=secret, user_agent="android")
+    reddit = praw.Reddit(client_id=id, client_secret=secret, user_agent=agent)
     if len(sys.argv) > 1:
         sub = reddit.subreddit(sys.argv[1])
     else:
