@@ -17,7 +17,7 @@ def main():
         sys.exit(1)
 
     try:
-        cast = next(cc for cc in casts if cc.device.friendly_name == castDeviceName)
+        cast = next(cc for cc in casts[0] if cc.device.friendly_name == castDeviceName)
     except StopIteration:
         print("Device not found")
         sys.exit(1)
